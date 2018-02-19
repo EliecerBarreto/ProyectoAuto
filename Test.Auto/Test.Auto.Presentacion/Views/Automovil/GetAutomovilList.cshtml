@@ -1,0 +1,98 @@
+﻿@model IEnumerable<Test.Auto.Entidades.Automovil>
+
+<script src="~/Scripts/jquery-3.0.0.min.js"></script>
+<script src="~/Scripts/jquery-ui-1.8.20.min.js"></script>
+<script src="~/Scripts/chosen.jquery.min.js"></script>
+<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+<link href="~/Content/CSS/Portal.css" rel="stylesheet" />
+<script src="~/Scripts/bootstrap.min.js"></script>
+
+
+<div style=" margin-top: 85px; left: 54px;">
+    <h2>Automoviles</h2>
+
+    @if(Model.Count()>0){
+
+    <div class="modalDialog modal fade bd-example-modal-lg" id="modelListado" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;position: fixed;">
+        <div class="modal-content" style="width: 1143px;height: 490px;border-left-width: 512px; border-right-width: 35px; border-top-width: 22px;">
+             <div class="modal-body"> 
+                                         
+                    @Html.Partial("_getAutomovilVendedor", Model.Select(a => a.Vendedor).FirstOrDefault());               
+                 </div>            
+        </div>
+    </div>
+<table>
+    <tr>
+        <th>Marca
+        </th>
+        <th>Modelo
+        </th>
+        <th>KM
+        </th>
+        <th>Año del Modelo
+        </th>
+        <th>Precio
+        </th>
+        <th>Combustible
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.Modelo.Marca.nombre_marca)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Modelo.nombre_modelo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.km)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.anio)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.precio)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.tipo_combustible)
+            </td>
+            <td>
+                <a onclick="ver(@item.Id_auto)">Ver</a>
+
+            </td>
+        </tr>
+    }
+
+</table>
+        }
+        else{
+
+<span>No se encontraron registros con esa busqueda.</span>
+}
+    </div>
+
+
+<script type="text/javascript">
+
+    function ver(id_auto) {
+        $.ajax({
+            dataType: 'html',
+            type: 'GET',
+            url: "/Automovil/GetAutomovilVendedor",
+            data: { 'id_Auto': id_auto },
+            success: function (response) { succesAuto(response); },
+            error: function (ex) {
+                alert('Error ' + ex);
+            },
+        });
+    }
+    function succesAuto(response) {
+        $("#modelListado").modal('show');
+    }
+</script>
+
+

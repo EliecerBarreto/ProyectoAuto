@@ -1,0 +1,7 @@
+D:\ETL\Test.Auto\Test.Auto.Entidades\bin\Debug\Test.Auto.Entidades.dll.config
+D:\ETL\Test.Auto\Test.Auto.Entidades\bin\Debug\Test.Auto.Entidades.dll
+D:\ETL\Test.Auto\Test.Auto.Entidades\bin\Debug\Test.Auto.Entidades.pdb
+D:\ETL\Test.Auto\Test.Auto.Entidades\bin\Debug\EntityFramework.dll
+D:\ETL\Test.Auto\Test.Auto.Entidades\bin\Debug\EntityFramework.xml
+D:\ETL\Test.Auto\Test.Auto.Entidades\obj\Debug\Test.Auto.Entidades.dll
+D:\ETL\Test.Auto\Test.Auto.Entidades\obj\Debug\Test.Auto.Entidades.pdb

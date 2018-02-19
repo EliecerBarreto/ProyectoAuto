@@ -1,0 +1,72 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>@ViewBag.Title</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <link href="~/Content/CSS/estilos.css" rel="stylesheet" />
+    <link href="~/Content/font-awesome.css" rel="stylesheet" />
+
+    <script src="~/Scripts/menu/jquery-3.2.1.js"></script>
+    <script src="~/Scripts/menu/main.js"></script>
+
+</head>
+<body>
+    <header style="z-index:3; position:absolute">
+        <span id="button-menu" style="width:1000px"class="fa fa-bars" ></span>
+        <span style="color:white ;margin-right: 10px;">INGRESA</span>
+         <span style="color:white; margin-right: 10px;" class=""  >REGISTRATE</span>
+        <span style="color:white !important; margin-right: 10px;" class="fa fa-2x fa-facebook-square"></span>
+        <span style="color:white !important; margin-right: 10px;" class="fa fa-2x fa-twitter"></span>
+         
+
+        <nav class="navegacion" >
+            <ul class="menu" >
+                <!-- TITULAR -->
+                <li class="title-menu">Todas las Categorías</li>
+                <!-- TITULAR -->
+
+                <li><a href="#"><span class="fa fa-car"></span>Autos</a></li>
+
+                <li class="item-submenu" menu="1">
+                    <a href="#"><span class="fa fa-car"></span>Autos Usados</a>
+                    <ul class="submenu">
+                        <li class="title-menu"><span class="fa fa-car"></span>Servicios</li>
+                        <li class="go-back">Atras</li>
+
+                        <li><a href="#">Diseño web</a></li>
+                        <li><a href="#">Alojamiento web</a></li>
+                        <li><a href="#">Dominios</a></li>
+                    </ul>
+                </li>
+
+                <li class="item-submenu" menu="2">
+                    <a href="#"><span class="fa fa-car"></span>Autos Nuevos</a>
+                    <ul class="submenu">
+                        <li class="title-menu"><span class="fa fa-truck"></span>Camiones</li>
+                        <li class="go-back">Atras</li>
+
+                        <li><a href="#">Laptops</a></li>
+                        <li><a href="#">Smarphones</a></li>
+                        <li><a href="#">Consolas de viejuegos</a></li>
+                    </ul>
+                </li>
+
+                <li><a href="#"><span class="fa fa-envelope icon-menu"></span>Catálogo 0Km</a></li>
+                <li><a href="#"><span class="fa fa-tag icon-menu"></span>Financiación</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div class="col-md-12 container body-content " >
+         @RenderBody()
+    </div>
+  
+
+    @Scripts.Render("~/bundles/jquery")
+     @Scripts.Render("~/bundles/bootstrap")
+
+    @RenderSection("scripts", required: false)
+</body>
+</html>

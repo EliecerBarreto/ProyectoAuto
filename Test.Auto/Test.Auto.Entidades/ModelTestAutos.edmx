@@ -1,0 +1,270 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="deautos_test_netModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityContainer Name="deautos_test_netModelStoreContainer">
+          <EntitySet Name="Automovil" EntityType="deautos_test_netModel.Store.Automovil" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Marca" EntityType="deautos_test_netModel.Store.Marca" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Modelo" EntityType="deautos_test_netModel.Store.Modelo" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Vendedor" EntityType="deautos_test_netModel.Store.Vendedor" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="FK_Automovil_IdModelo" Association="deautos_test_netModel.Store.FK_Automovil_IdModelo">
+            <End Role="Modelo" EntitySet="Modelo" />
+            <End Role="Automovil" EntitySet="Automovil" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Automovil_Idvendedor" Association="deautos_test_netModel.Store.FK_Automovil_Idvendedor">
+            <End Role="Vendedor" EntitySet="Vendedor" />
+            <End Role="Automovil" EntitySet="Automovil" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Marca_IdModelo" Association="deautos_test_netModel.Store.FK_Marca_IdModelo">
+            <End Role="Marca" EntitySet="Marca" />
+            <End Role="Modelo" EntitySet="Modelo" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Automovil">
+          <Key>
+            <PropertyRef Name="Id_auto" />
+          </Key>
+          <Property Name="Id_auto" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="id_modelo" Type="int" Nullable="false" />
+          <Property Name="id_vendedor" Type="int" Nullable="false" />
+          <Property Name="km" Type="int" Nullable="false" />
+          <Property Name="tipo_combustible" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="precio" Type="decimal" Nullable="false" Scale="2" />
+          <Property Name="anio" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Marca">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="nombre_marca" Type="varchar" Nullable="false" MaxLength="250" />
+        </EntityType>
+        <EntityType Name="Modelo">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="cod_marca" Type="int" Nullable="false" />
+          <Property Name="nombre_modelo" Type="varchar" Nullable="false" MaxLength="250" />
+        </EntityType>
+        <EntityType Name="Vendedor">
+          <Key>
+            <PropertyRef Name="id_vendedor" />
+          </Key>
+          <Property Name="id_vendedor" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="nombre" Type="varchar" Nullable="false" MaxLength="100" />
+          <Property Name="apellido" Type="varchar" Nullable="false" MaxLength="100" />
+          <Property Name="e_mail" Type="varchar" Nullable="false" MaxLength="100" />
+          <Property Name="telefono" Type="varchar" Nullable="false" MaxLength="20" />
+        </EntityType>
+        <Association Name="FK_Automovil_IdModelo">
+          <End Role="Modelo" Type="deautos_test_netModel.Store.Modelo" Multiplicity="1" />
+          <End Role="Automovil" Type="deautos_test_netModel.Store.Automovil" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Modelo">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Automovil">
+              <PropertyRef Name="id_modelo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Automovil_Idvendedor">
+          <End Role="Vendedor" Type="deautos_test_netModel.Store.Vendedor" Multiplicity="1" />
+          <End Role="Automovil" Type="deautos_test_netModel.Store.Automovil" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Vendedor">
+              <PropertyRef Name="id_vendedor" />
+            </Principal>
+            <Dependent Role="Automovil">
+              <PropertyRef Name="id_vendedor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Marca_IdModelo">
+          <End Role="Marca" Type="deautos_test_netModel.Store.Marca" Multiplicity="1" />
+          <End Role="Modelo" Type="deautos_test_netModel.Store.Modelo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Marca">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Modelo">
+              <PropertyRef Name="cod_marca" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="deautos_test_netModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="deautos_test_netEntities" p1:LazyLoadingEnabled="true">
+          <EntitySet Name="Automovil" EntityType="deautos_test_netModel.Automovil" />
+          <EntitySet Name="Marca" EntityType="deautos_test_netModel.Marca" />
+          <EntitySet Name="Modelo" EntityType="deautos_test_netModel.Modelo" />
+          <EntitySet Name="Vendedor" EntityType="deautos_test_netModel.Vendedor" />
+          <AssociationSet Name="FK_Automovil_IdModelo" Association="deautos_test_netModel.FK_Automovil_IdModelo">
+            <End Role="Modelo" EntitySet="Modelo" />
+            <End Role="Automovil" EntitySet="Automovil" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Automovil_Idvendedor" Association="deautos_test_netModel.FK_Automovil_Idvendedor">
+            <End Role="Vendedor" EntitySet="Vendedor" />
+            <End Role="Automovil" EntitySet="Automovil" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Marca_IdModelo" Association="deautos_test_netModel.FK_Marca_IdModelo">
+            <End Role="Marca" EntitySet="Marca" />
+            <End Role="Modelo" EntitySet="Modelo" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Automovil">
+          <Key>
+            <PropertyRef Name="Id_auto" />
+          </Key>
+          <Property Name="Id_auto" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="id_modelo" Type="Int32" Nullable="false" />
+          <Property Name="id_vendedor" Type="Int32" Nullable="false" />
+          <Property Name="km" Type="Int32" Nullable="false" />
+          <Property Name="tipo_combustible" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="precio" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+          <Property Name="anio" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Modelo" Relationship="deautos_test_netModel.FK_Automovil_IdModelo" FromRole="Automovil" ToRole="Modelo" />
+          <NavigationProperty Name="Vendedor" Relationship="deautos_test_netModel.FK_Automovil_Idvendedor" FromRole="Automovil" ToRole="Vendedor" />
+        </EntityType>
+        <EntityType Name="Marca">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="nombre_marca" Type="String" Nullable="false" MaxLength="250" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="Modelo" Relationship="deautos_test_netModel.FK_Marca_IdModelo" FromRole="Marca" ToRole="Modelo" />
+        </EntityType>
+        <EntityType Name="Modelo">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="cod_marca" Type="Int32" Nullable="false" />
+          <Property Name="nombre_modelo" Type="String" Nullable="false" MaxLength="250" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="Automovil" Relationship="deautos_test_netModel.FK_Automovil_IdModelo" FromRole="Modelo" ToRole="Automovil" />
+          <NavigationProperty Name="Marca" Relationship="deautos_test_netModel.FK_Marca_IdModelo" FromRole="Modelo" ToRole="Marca" />
+        </EntityType>
+        <EntityType Name="Vendedor">
+          <Key>
+            <PropertyRef Name="id_vendedor" />
+          </Key>
+          <Property Name="id_vendedor" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="nombre" Type="String" Nullable="false" MaxLength="100" Unicode="false" FixedLength="false" />
+          <Property Name="apellido" Type="String" Nullable="false" MaxLength="100" Unicode="false" FixedLength="false" />
+          <Property Name="e_mail" Type="String" Nullable="false" MaxLength="100" Unicode="false" FixedLength="false" />
+          <Property Name="telefono" Type="String" Nullable="false" MaxLength="20" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="Automovil" Relationship="deautos_test_netModel.FK_Automovil_Idvendedor" FromRole="Vendedor" ToRole="Automovil" />
+        </EntityType>
+        <Association Name="FK_Automovil_IdModelo">
+          <End Role="Modelo" Type="deautos_test_netModel.Modelo" Multiplicity="1" />
+          <End Role="Automovil" Type="deautos_test_netModel.Automovil" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Modelo">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Automovil">
+              <PropertyRef Name="id_modelo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Automovil_Idvendedor">
+          <End Role="Vendedor" Type="deautos_test_netModel.Vendedor" Multiplicity="1" />
+          <End Role="Automovil" Type="deautos_test_netModel.Automovil" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Vendedor">
+              <PropertyRef Name="id_vendedor" />
+            </Principal>
+            <Dependent Role="Automovil">
+              <PropertyRef Name="id_vendedor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Marca_IdModelo">
+          <End Role="Marca" Type="deautos_test_netModel.Marca" Multiplicity="1" />
+          <End Role="Modelo" Type="deautos_test_netModel.Modelo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Marca">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Modelo">
+              <PropertyRef Name="cod_marca" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="deautos_test_netModelStoreContainer" CdmEntityContainer="deautos_test_netEntities">
+          <EntitySetMapping Name="Automovil">
+            <EntityTypeMapping TypeName="deautos_test_netModel.Automovil">
+              <MappingFragment StoreEntitySet="Automovil">
+                <ScalarProperty Name="Id_auto" ColumnName="Id_auto" />
+                <ScalarProperty Name="id_modelo" ColumnName="id_modelo" />
+                <ScalarProperty Name="id_vendedor" ColumnName="id_vendedor" />
+                <ScalarProperty Name="km" ColumnName="km" />
+                <ScalarProperty Name="tipo_combustible" ColumnName="tipo_combustible" />
+                <ScalarProperty Name="precio" ColumnName="precio" />
+                <ScalarProperty Name="anio" ColumnName="anio" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Marca">
+            <EntityTypeMapping TypeName="deautos_test_netModel.Marca">
+              <MappingFragment StoreEntitySet="Marca">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="nombre_marca" ColumnName="nombre_marca" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Modelo">
+            <EntityTypeMapping TypeName="deautos_test_netModel.Modelo">
+              <MappingFragment StoreEntitySet="Modelo">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="cod_marca" ColumnName="cod_marca" />
+                <ScalarProperty Name="nombre_modelo" ColumnName="nombre_modelo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Vendedor">
+            <EntityTypeMapping TypeName="deautos_test_netModel.Vendedor">
+              <MappingFragment StoreEntitySet="Vendedor">
+                <ScalarProperty Name="id_vendedor" ColumnName="id_vendedor" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="apellido" ColumnName="apellido" />
+                <ScalarProperty Name="e_mail" ColumnName="e_mail" />
+                <ScalarProperty Name="telefono" ColumnName="telefono" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

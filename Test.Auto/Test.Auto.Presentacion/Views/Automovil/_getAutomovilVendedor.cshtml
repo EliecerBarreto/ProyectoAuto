@@ -1,0 +1,55 @@
+﻿@model Test.Auto.Entidades.Vendedor
+
+<script src="~/Scripts/jquery-3.0.0.min.js"></script>
+<script src="~/Scripts/jquery-ui-1.8.20.min.js"></script>
+<script src="~/Scripts/chosen.jquery.min.js"></script>
+<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+<link href="~/Content/CSS/Portal.css" rel="stylesheet" />
+<script src="~/Scripts/bootstrap.min.js"></script>
+
+<h2>Informacion del Vendedor</h2>
+
+@using (Html.BeginForm()) {
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>Vendedor</legend>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.nombre)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.nombre)
+            @Html.ValidationMessageFor(model => model.nombre)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.apellido)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model =>model.apellido)           
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.e_mail)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.e_mail)    
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.telefono)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.telefono)
+           
+        </div>
+    </fieldset>}
+<div>
+        @Html.ActionLink("Cerrar", "GetAutomovilList")
+
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

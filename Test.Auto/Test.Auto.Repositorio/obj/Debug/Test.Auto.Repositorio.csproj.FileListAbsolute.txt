@@ -1,0 +1,10 @@
+D:\ETL\Test.Auto\Test.Auto.Repositorio\bin\Debug\Test.Auto.Repositorio.dll.config
+D:\ETL\Test.Auto\Test.Auto.Repositorio\bin\Debug\Test.Auto.Repositorio.dll
+D:\ETL\Test.Auto\Test.Auto.Repositorio\bin\Debug\Test.Auto.Repositorio.pdb
+D:\ETL\Test.Auto\Test.Auto.Repositorio\bin\Debug\EntityFramework.dll
+D:\ETL\Test.Auto\Test.Auto.Repositorio\bin\Debug\Test.Auto.Entidades.dll
+D:\ETL\Test.Auto\Test.Auto.Repositorio\bin\Debug\Test.Auto.Entidades.pdb
+D:\ETL\Test.Auto\Test.Auto.Repositorio\bin\Debug\EntityFramework.xml
+D:\ETL\Test.Auto\Test.Auto.Repositorio\obj\Debug\Test.Auto.Repositorio.csprojResolveAssemblyReference.cache
+D:\ETL\Test.Auto\Test.Auto.Repositorio\obj\Debug\Test.Auto.Repositorio.dll
+D:\ETL\Test.Auto\Test.Auto.Repositorio\obj\Debug\Test.Auto.Repositorio.pdb

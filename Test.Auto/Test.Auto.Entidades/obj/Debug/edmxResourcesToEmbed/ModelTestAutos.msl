@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="deautos_test_netModelStoreContainer" CdmEntityContainer="deautos_test_netEntities">
+    <EntitySetMapping Name="Automovil">
+      <EntityTypeMapping TypeName="deautos_test_netModel.Automovil">
+        <MappingFragment StoreEntitySet="Automovil">
+          <ScalarProperty Name="Id_auto" ColumnName="Id_auto" />
+          <ScalarProperty Name="id_modelo" ColumnName="id_modelo" />
+          <ScalarProperty Name="id_vendedor" ColumnName="id_vendedor" />
+          <ScalarProperty Name="km" ColumnName="km" />
+          <ScalarProperty Name="tipo_combustible" ColumnName="tipo_combustible" />
+          <ScalarProperty Name="precio" ColumnName="precio" />
+          <ScalarProperty Name="anio" ColumnName="anio" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Marca">
+      <EntityTypeMapping TypeName="deautos_test_netModel.Marca">
+        <MappingFragment StoreEntitySet="Marca">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="nombre_marca" ColumnName="nombre_marca" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Modelo">
+      <EntityTypeMapping TypeName="deautos_test_netModel.Modelo">
+        <MappingFragment StoreEntitySet="Modelo">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="cod_marca" ColumnName="cod_marca" />
+          <ScalarProperty Name="nombre_modelo" ColumnName="nombre_modelo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Vendedor">
+      <EntityTypeMapping TypeName="deautos_test_netModel.Vendedor">
+        <MappingFragment StoreEntitySet="Vendedor">
+          <ScalarProperty Name="id_vendedor" ColumnName="id_vendedor" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="apellido" ColumnName="apellido" />
+          <ScalarProperty Name="e_mail" ColumnName="e_mail" />
+          <ScalarProperty Name="telefono" ColumnName="telefono" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
